@@ -37,11 +37,13 @@ export default function Pitch({ pitch }: { pitch: PitchData }) {
         />
       ))}
 
+      {/* home labels below the dot, away labels above — keeps names from colliding
+          where the two lines meet in midfield */}
       {pitch.home.map((p, i) => (
-        <Dot key={`h${i}`} p={p} color="#3b82f6" />
+        <Dot key={`h${i}`} p={p} color="#3b82f6" labelAbove={false} />
       ))}
       {pitch.away.map((p, i) => (
-        <Dot key={`a${i}`} p={p} color="#ef4444" />
+        <Dot key={`a${i}`} p={p} color="#ef4444" labelAbove={true} />
       ))}
 
       <circle cx={pitch.ball.x} cy={sy(pitch.ball.y)} r="0.9" fill="#fff" stroke="#000" strokeWidth="0.15" />
@@ -49,23 +51,16 @@ export default function Pitch({ pitch }: { pitch: PitchData }) {
   );
 }
 
-function Dot({ p, color }: { p: PlayerDot; color: string }) {
+function Dot({ p, color, labelAbove }: { p: PlayerDot; color: string; labelAbove: boolean }) {
   const r = p.highlight ? 2.2 : 1.7;
+  const ly = labelAbove ? sy(p.y) - r - 0.9 : sy(p.y) + r + 1.9;
   return (
     <g>
       {p.highlight && (
         <circle cx={p.x} cy={sy(p.y)} r={r + 1} fill="none" stroke="#fde047" strokeWidth="0.4" />
       )}
       <circle cx={p.x} cy={sy(p.y)} r={r} fill={color} stroke="#0b0b0b" strokeWidth="0.2" />
-      <text
-        x={p.x}
-        y={sy(p.y) + r + 1.9}
-        textAnchor="middle"
-        fontSize="1.7"
-        fill="#f8fafc"
-        stroke="#0b0b0b"
-        strokeWidth="0.06"
-      >
+      <text x={p.x} y={ly} textAnchor="middle" fontSize="1.7" fill="#f8fafc" stroke="#0b0b0b" strokeWidth="0.06">
         {p.name}
       </text>
     </g>
