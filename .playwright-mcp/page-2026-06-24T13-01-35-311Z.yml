@@ -1,0 +1,55 @@
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e28] [cursor=pointer]:
+    - img [ref=e29]
+  - alert [ref=e32]
+  - main [ref=e33]:
+    - link "← back to matches" [ref=e34] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e35]:
+      - heading "Götze's extra-time winner" [level=1] [ref=e36]
+      - paragraph [ref=e37]: Germany vs Argentina · 2014 · 113'
+    - generic [ref=e38]:
+      - generic [ref=e39]:
+        - img [ref=e40]:
+          - generic [ref=e50]: Neuer
+          - generic [ref=e53]: Lahm
+          - generic [ref=e56]: Boateng
+          - generic [ref=e59]: Hummels
+          - generic [ref=e62]: Höwedes
+          - generic [ref=e65]: Kroos
+          - generic [ref=e68]: Schweinsteiger
+          - generic [ref=e71]: Müller
+          - generic [ref=e74]: Özil
+          - generic [ref=e77]: Schürrle
+          - generic [ref=e81]: Götze
+          - generic [ref=e84]: Romero
+          - generic [ref=e87]: Zabaleta
+          - generic [ref=e90]: Garay
+          - generic [ref=e93]: Demichelis
+          - generic [ref=e96]: Rojo
+          - generic [ref=e99]: Mascherano
+          - generic [ref=e102]: Biglia
+          - generic [ref=e105]: Pérez
+          - generic [ref=e108]: Lavezzi
+          - generic [ref=e111]: Higuaín
+          - generic [ref=e114]: Messi
+        - generic [ref=e116]:
+          - generic [ref=e117]: Germany
+          - generic [ref=e119]: Argentina
+        - paragraph [ref=e121]: Deep into extra time of a goalless final, substitute André Schürrle drove to the left byline and clipped a cross in. Mario Götze cushioned it on his chest and volleyed left-footed past Sergio Romero — the only goal of the 2014 World Cup final.
+      - generic [ref=e122]:
+        - generic [ref=e123]:
+          - generic [ref=e124]:
+            - heading "Tactical Analyst" [level=3] [ref=e125]
+            - generic [ref=e126]: done
+          - paragraph [ref=e127]: "MOCK ANALYSIS: the shift here comes down to space and timing — one side committed numbers forward and the other punished the gap left behind. Set MOCK=0 with watsonx credentials for real Granite output."
+        - generic [ref=e128]:
+          - generic [ref=e129]:
+            - heading "Momentum Analyst" [level=3] [ref=e130]
+            - generic [ref=e131]: done
+          - paragraph [ref=e142]: "MOCK ANALYSIS: the shift here comes down to space and timing — one side committed numbers forward and the other punished the gap left behind. Set MOCK=0 with watsonx credentials for real Granite output."
+        - generic [ref=e135]:
+          - generic [ref=e136]:
+            - heading "Decision Explainer" [level=3] [ref=e137]
+            - generic [ref=e138]: done
+          - paragraph [ref=e143]: "MOCK ANALYSIS: the shift here comes down to space and timing — one side committed numbers forward and the other punished the gap left behind. Set MOCK=0 with watsonx credentials for real Granite output."

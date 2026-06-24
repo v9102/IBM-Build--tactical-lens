@@ -1,0 +1,7 @@
+- main [ref=e2]:
+  - heading "Tactical Lens" [level=1] [ref=e3]
+  - paragraph [ref=e4]:
+    - text: Pick a World Cup moment. Three AI agents explain
+    - emphasis [ref=e5]: why
+    - text: it happened — not just what.
+  - paragraph [ref=e6]: Loading matches…
