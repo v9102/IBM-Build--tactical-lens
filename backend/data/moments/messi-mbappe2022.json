@@ -1,0 +1,47 @@
+{
+  "id": "messi-mbappe2022",
+  "title": "Messi vs Mbappé: the extra-time duel",
+  "moment_label": "Trading blows in the greatest final",
+  "year": 2022,
+  "minute": 118,
+  "teams": { "home": "Argentina", "away": "France" },
+  "summary": "A final that swung wildly. Argentina led 2-0 until Mbappé struck twice in 97 seconds to force extra time. Messi poked Argentina back ahead at 108', then Mbappé completed his hat-trick from the spot at 118' for 3-3. Argentina won the shootout — two superstars answering each other blow for blow.",
+  "facts": {
+    "score": "3-3",
+    "competition": "2022 World Cup Final (Argentina won 4-2 on penalties)",
+    "var": "Three penalties awarded (Argentina 23'; France 80' and 118')",
+    "subs": ["Mbappé pushed central as France chased the game", "Montiel on for Argentina"]
+  },
+  "pitch": {
+    "home": [
+      { "name": "E. Martínez", "x": 6, "y": 50, "role": "GK" },
+      { "name": "Molina", "x": 30, "y": 18, "role": "RB" },
+      { "name": "Romero", "x": 24, "y": 40, "role": "CB" },
+      { "name": "Otamendi", "x": 24, "y": 60, "role": "CB" },
+      { "name": "Tagliafico", "x": 30, "y": 84, "role": "LB" },
+      { "name": "De Paul", "x": 48, "y": 40, "role": "CM" },
+      { "name": "Enzo Fernández", "x": 46, "y": 60, "role": "CM" },
+      { "name": "Mac Allister", "x": 52, "y": 50, "role": "CM" },
+      { "name": "Messi", "x": 78, "y": 30, "role": "FW", "highlight": true },
+      { "name": "Álvarez", "x": 80, "y": 52, "role": "CF" },
+      { "name": "Acuña", "x": 70, "y": 74, "role": "LM" }
+    ],
+    "away": [
+      { "name": "Lloris", "x": 96, "y": 50, "role": "GK" },
+      { "name": "Koundé", "x": 74, "y": 80, "role": "RB" },
+      { "name": "Upamecano", "x": 76, "y": 58, "role": "CB" },
+      { "name": "Konaté", "x": 76, "y": 42, "role": "CB" },
+      { "name": "Hernández", "x": 74, "y": 20, "role": "LB" },
+      { "name": "Tchouaméni", "x": 60, "y": 50, "role": "CM" },
+      { "name": "Fofana", "x": 58, "y": 64, "role": "CM" },
+      { "name": "Griezmann", "x": 58, "y": 36, "role": "AM" },
+      { "name": "Mbappé", "x": 44, "y": 40, "role": "FW", "highlight": true },
+      { "name": "Kolo Muani", "x": 46, "y": 60, "role": "FW" },
+      { "name": "Coman", "x": 48, "y": 76, "role": "FW" }
+    ],
+    "ball": { "x": 77, "y": 34 },
+    "arrows": [
+      { "from": { "x": 60, "y": 45 }, "to": { "x": 78, "y": 30 }, "label": "Messi drifts into space" }
+    ]
+  }
+}

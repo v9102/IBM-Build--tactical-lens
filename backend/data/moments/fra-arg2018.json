@@ -1,0 +1,47 @@
+{
+  "id": "fra-arg2018",
+  "title": "Mbappé's pace breaks Argentina",
+  "moment_label": "How transitions tore Argentina apart",
+  "year": 2018,
+  "minute": 64,
+  "teams": { "home": "France", "away": "Argentina" },
+  "summary": "In a 4-3 last-16 thriller, Kylian Mbappé repeatedly attacked the space behind Argentina's high, slow back line. After winning an early penalty with a 70-metre sprint, he struck twice in four second-half minutes to turn the tie — France countering at speed while Argentina committed numbers forward.",
+  "facts": {
+    "score": "3-2",
+    "competition": "2018 World Cup, Round of 16",
+    "var": "Early penalty (13') for the foul on Mbappé",
+    "subs": ["Pavón on for Argentina", "Tolisso later for France"]
+  },
+  "pitch": {
+    "home": [
+      { "name": "Lloris", "x": 6, "y": 50, "role": "GK" },
+      { "name": "Pavard", "x": 28, "y": 18, "role": "RB" },
+      { "name": "Varane", "x": 24, "y": 40, "role": "CB" },
+      { "name": "Umtiti", "x": 24, "y": 60, "role": "CB" },
+      { "name": "Hernández", "x": 28, "y": 84, "role": "LB" },
+      { "name": "Pogba", "x": 50, "y": 42, "role": "CM" },
+      { "name": "Kanté", "x": 46, "y": 58, "role": "CM" },
+      { "name": "Matuidi", "x": 52, "y": 78, "role": "LM" },
+      { "name": "Mbappé", "x": 82, "y": 16, "role": "RW", "highlight": true },
+      { "name": "Giroud", "x": 80, "y": 50, "role": "CF" },
+      { "name": "Griezmann", "x": 72, "y": 66, "role": "AM" }
+    ],
+    "away": [
+      { "name": "Armani", "x": 96, "y": 50, "role": "GK" },
+      { "name": "Mercado", "x": 62, "y": 80, "role": "RB" },
+      { "name": "Otamendi", "x": 60, "y": 56, "role": "CB" },
+      { "name": "Rojo", "x": 58, "y": 40, "role": "CB" },
+      { "name": "Tagliafico", "x": 62, "y": 20, "role": "LB" },
+      { "name": "Mascherano", "x": 52, "y": 50, "role": "CM" },
+      { "name": "Enzo Pérez", "x": 50, "y": 64, "role": "CM" },
+      { "name": "Banega", "x": 50, "y": 36, "role": "CM" },
+      { "name": "Messi", "x": 40, "y": 30, "role": "FW" },
+      { "name": "Higuaín", "x": 42, "y": 58, "role": "FW" },
+      { "name": "Di María", "x": 44, "y": 75, "role": "FW" }
+    ],
+    "ball": { "x": 80, "y": 20 },
+    "arrows": [
+      { "from": { "x": 55, "y": 30 }, "to": { "x": 82, "y": 16 }, "label": "ball over the top → Mbappé in behind" }
+    ]
+  }
+}
