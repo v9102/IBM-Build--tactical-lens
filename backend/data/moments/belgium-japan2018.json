@@ -1,0 +1,52 @@
+{
+  "id": "belgium-japan2018",
+  "title": "Belgium's 3-2 comeback vs Japan",
+  "moment_label": "The greatest counter-attack in World Cup history",
+  "year": 2018,
+  "minute": 94,
+  "teams": { "home": "Belgium", "away": "Japan" },
+  "summary": "Trailing 2-0 with 20 minutes left, Belgium staged a remarkable comeback to make it 2-2. In the 94th minute, Japan won a corner. Courtois caught it, started a rapid counter — 14 seconds, 4 passes, from box to box. Chadli swept home the cut-back for the winner. The move is studied worldwide as the perfect transition.",
+  "facts": {
+    "score": "3-2",
+    "competition": "2018 World Cup Round of 16",
+    "var": null,
+    "subs": ["Fellaini on 65' (equaliser 1)", "Chadli on 65' (scored winner)"],
+    "key_stat": "14 seconds, 4 passes, 6 touches — from Courtois' catch to Chadli's goal"
+  },
+  "pitch": {
+    "home": [
+      { "name": "Courtois", "x": 5, "y": 50, "role": "GK", "highlight": true },
+      { "name": "Alderweireld", "x": 12, "y": 72, "role": "RB" },
+      { "name": "Kompany", "x": 10, "y": 42, "role": "CB" },
+      { "name": "Boyata", "x": 10, "y": 58, "role": "CB" },
+      { "name": "Vertonghen", "x": 8, "y": 20, "role": "LB" },
+      { "name": "Witsel", "x": 18, "y": 55, "role": "CM" },
+      { "name": "Fellaini", "x": 22, "y": 42, "role": "CM" },
+      { "name": "E. Hazard", "x": 38, "y": 76, "role": "LW" },
+      { "name": "De Bruyne", "x": 30, "y": 50, "role": "AM" },
+      { "name": "Chadli", "x": 26, "y": 88, "role": "LM" },
+      { "name": "Lukaku", "x": 42, "y": 60, "role": "FW" }
+    ],
+    "away": [
+      { "name": "Kawashima", "x": 96, "y": 50, "role": "GK" },
+      { "name": "Sakai", "x": 85, "y": 16, "role": "RB" },
+      { "name": "Yoshida", "x": 88, "y": 60, "role": "CB" },
+      { "name": "M. Yoshida", "x": 90, "y": 42, "role": "CB" },
+      { "name": "Nagatomo", "x": 88, "y": 85, "role": "LB" },
+      { "name": "Shibasaki", "x": 72, "y": 50, "role": "CM" },
+      { "name": "Hasebe", "x": 60, "y": 62, "role": "CM" },
+      { "name": "Inui", "x": 24, "y": 78, "role": "RM", "highlight": true },
+      { "name": "K. Honda", "x": 28, "y": 48, "role": "AM" },
+      { "name": "Haraguchi", "x": 18, "y": 22, "role": "LM" },
+      { "name": "Osako", "x": 16, "y": 55, "role": "FW" }
+    ],
+    "ball": { "x": 5, "y": 50 },
+    "arrows": [
+      { "from": { "x": 5, "y": 50 }, "to": { "x": 30, "y": 50 }, "label": "Courtois throw ⟶ De Bruyne" },
+      { "from": { "x": 30, "y": 50 }, "to": { "x": 38, "y": 76 }, "label": "De Bruyne sprint ⟶ Hazard" },
+      { "from": { "x": 38, "y": 76 }, "to": { "x": 26, "y": 88 }, "label": "Hazard through ball ⟶ Chadli" },
+      { "from": { "x": 26, "y": 88 }, "to": { "x": 96, "y": 50 }, "label": "Chadli finishes" },
+      { "from": { "x": 42, "y": 60 }, "to": { "x": 90, "y": 60 }, "label": "Lukaku decoy run (drags defenders)" }
+    ]
+  }
+}

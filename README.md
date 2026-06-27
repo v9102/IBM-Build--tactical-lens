@@ -1,9 +1,9 @@
 # Tactical Lens
 
 An AI web app that explains **why** moments happen in World Cup matches — not the stats
-("what"), but the causes: *why momentum shifted, why a VAR call was right, what changed
-tactically.* Pick a preset moment and three IBM Granite agents break it down over a live pitch
-diagram.
+("what"), but the causes: *why a tactical shape collapsed, why momentum shifted, why a VAR
+decision was correct.* Pick a moment and three IBM Granite agents stream their analysis over a
+live, interactive pitch diagram.
 
 Built for the **IBM Builders Challenge** using **IBM Granite (watsonx.ai) + LangChain + Docling**.
 
@@ -11,28 +11,56 @@ Built for the **IBM Builders Challenge** using **IBM Granite (watsonx.ai) + Lang
 
 ```
 Next.js (3000) ──HTTP / SSE──► FastAPI (8000)
- match selector               GET  /matches        list the 3 preset moments
- pitch SVG + 3 panels         GET  /matches/{id}   full moment + pitch positions
- live streaming text   ◄─SSE─ POST /analyze        stream the 3 agents' analysis
-                                                     │
-                          per agent: Docling RAG retrieve → Granite → token stream
+                                GET  /matches                7 curated moments
+                                GET  /matches/{id}           full moment + pitch positions
+                        ◄─SSE── POST /analyze                all 3 agents
+                        ◄─SSE── POST /analyze/{id}/{key}     regenerate one agent
+                        ◄─SSE── POST /analyze/compare        side-by-side comparison
+                                GET  /analyze/{id}/export    markdown export
+
+per agent: Docling RAG (optional) → IBM Granite → token stream over SSE
 ```
 
-Three agents run in sequence, each grounded in a tactical report via RAG:
+**3 AI agents** run in sequence, each with rich prompts (few-shot, chain-of-thought, 200+ words):
 
-1. **Tactical Analyst** — formation, pressing, spacing
-2. **Momentum Analyst** — when & why the game tilted
-3. **Decision Explainer** — VAR / referee calls in plain language
+| Agent | Focus | Output |
+|-------|-------|--------|
+| **Tactical Analyst** | Formation, pressing traps, spacing, overloads | Analysis + key factors + confidence score |
+| **Momentum Analyst** | When & why the game tilted (subs, fatigue, crowd) | Analysis + key factors + confidence score |
+| **Decision Explainer** | VAR/referee calls in plain language + Law citations | Analysis + key factors + confidence score |
 
-Preset moments: **Götze's 2014 final winner**, **France 4-3 Argentina (2018)**, **Messi vs
-Mbappé in the 2022 final**.
+## 7 Preset Moments
+
+| # | Moment | Year | Tactical story |
+|---|--------|------|----------------|
+| 1 | Götze's extra-time winner | 2014 | Fresh substitutes exploit a fatigued deep block |
+| 2 | France 4-3 Argentina | 2018 | Mbappé's pace shreds a high defensive line |
+| 3 | Messi vs Mbappé final | 2022 | Tactical battle with three VAR penalties |
+| 4 | Germany 7-1 Brazil | 2014 | Defensive collapse without captain + star |
+| 5 | Belgium 3-2 Japan | 2018 | The fastest counter-attack in WC history |
+| 6 | Morocco 1-0 Portugal | 2022 | Low-block masterclass — first African semi-finalist |
+| 7 | Argentina 3-0 Croatia | 2022 | Messi's dribble dismantles Croatia's shape |
+
+## Features
+
+- **Interactive pitch** — hover any player for name + role + highlight status; movement arrows with labels
+- **Live streaming** — tokens appear word-by-word as Granite generates them over SSE
+- **Confidence scores** — pre-flight estimate + parsed confidence from model output
+- **Key Factors** — structured bullet points extracted from each agent's analysis
+- **Regenerate** — re-run any single agent without re-running all three
+- **Compare** — side-by-side analysis of two moments with synchronized panels
+- **Export** — download match data as markdown
+- **Copy to clipboard** — per-panel copy button
+- **7 curated moments** — covering different tactical situations across 3 tournaments
+- **Mock mode** — fully offline demo with no watsonx credentials needed
 
 ## Tech
 
-- **Frontend** — Next.js (App Router) + Tailwind, pure-SVG pitch, SSE streaming consumer.
-- **Backend** — FastAPI, **LangChain** orchestration, **IBM Granite** via `langchain-ibm`
-  (`ChatWatsonx`), **Docling** RAG (`langchain-docling` → in-memory vector store, IBM `slate`
-  embeddings).
+- **Frontend** — Next.js 15 (App Router) + Tailwind v4 + TypeScript
+- **Backend** — FastAPI + LangChain + IBM Granite (`langchain-ibm` / `ChatWatsonx`)
+- **RAG** (optional) — Docling + langchain-docling → InMemoryVectorStore (IBM `slate` embeddings)
+- **AI** — IBM Granite 3 8B Instruct (configurable model ID)
+- **Streaming** — Server-Sent Events (SSE) from FastAPI to Next.js
 
 ## Run it locally
 
@@ -41,20 +69,15 @@ Mbappé in the 2022 final**.
 ```bash
 cd backend
 python -m venv .venv
-.venv/Scripts/activate           # Windows.  macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt  # heavy: pulls Docling + torch on first install
-cp .env.example .env             # then fill in your watsonx.ai credentials
-uvicorn app.main:app --reload --port 8000
+source .venv/bin/activate         # macOS/Linux
+pip install -r requirements.txt
+cp .env.example .env              # fill in watsonx credentials (or use mock mode)
+uvicorn app.main:app --port 8000
 ```
 
-Get `WATSONX_APIKEY` / `WATSONX_PROJECT_ID` from your [watsonx.ai](https://dataplatform.cloud.ibm.com/wx)
-project. Confirm the model ids in `.env` exist in your region (e.g. a Granite instruct model and a
-`slate` embedding model).
-
-**No credentials yet?** Run fully offline with fake models:
-
+**Mock mode** (no credentials needed, canned text):
 ```bash
-MOCK=1 RAG=0 uvicorn app.main:app --port 8000   # canned text, no watsonx, no Docling
+MOCK=1 RAG=0 uvicorn app.main:app --port 8000
 ```
 
 ### 2. Frontend (port 3000)
@@ -65,41 +88,41 @@ npm install
 npm run dev          # open http://localhost:3000
 ```
 
-If your backend isn't on `localhost:8000`, set `NEXT_PUBLIC_API_URL` in `frontend/.env.local`.
+Set `NEXT_PUBLIC_API_URL` in `frontend/.env.local` if your backend isn't on `:8000`.
 
 ## Test
 
-Offline pipeline check — asserts all 3 agents produce output and RAG retrieval is match-filtered.
-No watsonx credentials needed:
-
 ```bash
 cd backend
-MOCK=1 python -m pytest
+MOCK=1 python -m pytest    # 3 tests — agents, streaming, RAG filtering
 ```
+
+## API Endpoints
+
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/matches` | List all curated moments |
+| GET | `/matches/{id}` | Full moment data (pitch, players, arrows) |
+| POST | `/analyze` | Run all 3 agents, SSE stream |
+| POST | `/analyze/{id}/{agent_key}` | Regenerate a single agent |
+| POST | `/analyze/compare` | Compare two moments side-by-side |
+| GET | `/analyze/{id}/export` | Markdown export of match data |
 
 ## 3-minute demo script
 
-1. **Open** `localhost:3000` — show the three moment cards.
-2. **Click "Götze's extra-time winner"** — the pitch renders instantly; the three panels stream
-   in sequence (*queued → analyzing → done*), each citing a tactical report.
-3. **Call out the framing:** stats tell you Schürrle assisted Götze; Tactical Lens tells you *why*
-   the goal happened — fresh legs and movement against a tired, deep back line.
-4. **Back → "Messi vs Mbappé 2022"** — let the **Decision Explainer** walk through the three
-   penalties in plain language (the strongest "why a call was right" example).
-5. **Close on the stack:** Granite + LangChain + Docling RAG, multi-agent, streaming, end-to-end.
+1. **Open** `localhost:3000` — show the 7 moment cards with skeleton loading animation.
+2. **Click "Germany's 7-1 demolition of Brazil"** — the pitch renders instantly; hover a player to see
+   their role; the three panels stream in sequence, each with a confidence bar and key factors.
+3. **Call out the framing:** stats tell you Kroos scored; Tactical Lens tells you *why* — Silva's
+   absence broke Brazil's defensive coordination and Fernandinho's positional discipline collapsed.
+4. **Click "Regenerate"** on the Tactical Analyst panel — only that agent re-runs, the others stay.
+5. **Back → Compare two moments** — select "Belgium's 3-2 comeback" vs "Morocco's defensive
+   masterclass" to see contrasting tactical approaches side-by-side.
+6. **Close on the stack:** IBM Granite + LangChain multi-agent orchestration + Docling RAG,
+   structured output with confidence scoring, streaming SSE, interactive SVG pitch.
 
-## Project layout
+## Notes
 
-```
-backend/   FastAPI + LangChain agents + Docling RAG + curated match data
-frontend/  Next.js selector, results page, SVG pitch, SSE consumer
-```
-
-## Notes / next steps
-
-- Match data is **curated JSON** per moment (reliable for a demo). The schema is the same shape
-  StatsBomb open event data could populate later.
-- Docling currently ingests markdown reports; it parses PDF/DOCX identically — drop a PDF into
-  `backend/data/reports/` (named `<match_id>.pdf`) to demo that.
-- Vector store is in-memory (rebuilt at startup) — fine for this corpus; swap for a persisted
-  store if it grows.
+- Match data is curated JSON — schema matches StatsBomb open data format for future enrichment.
+- Vector store is in-memory (rebuilt at startup) — swap for a persistent store if corpus grows.
+- CORS allows `localhost:3000` and `3001` — update for deployment.

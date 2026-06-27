@@ -5,6 +5,11 @@ class AnalyzeRequest(BaseModel):
     match_id: str
 
 
-# Moment / match payloads are passed through as plain dicts (curated JSON) —
-# no schema needed, the frontend owns their shape. ponytail: don't model data
-# that only flows one way through.
+class RegenerateRequest(BaseModel):
+    match_id: str
+    agent_key: str
+
+
+class CompareRequest(BaseModel):
+    match_id_1: str
+    match_id_2: str

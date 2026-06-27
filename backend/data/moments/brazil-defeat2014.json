@@ -1,0 +1,49 @@
+{
+  "id": "brazil-defeat2014",
+  "title": "Germany's 7-1 demolition of Brazil",
+  "moment_label": "Brazil's defensive collapse without Neymar & Thiago Silva",
+  "year": 2014,
+  "minute": 29,
+  "teams": { "home": "Brazil", "away": "Germany" },
+  "summary": "Already 3-0 down after 24 minutes, Brazil conceded a fourth in the 29th minute. Toni Kroos — unmarked at the edge of the box — slotted home after a short corner routine. Brazil's backline, missing suspended captain Thiago Silva and injured star Neymar, was in complete disarray. Germany scored 4 goals in 6 minutes (23'–29').",
+  "facts": {
+    "score": "4-0 (7-1 final)",
+    "competition": "2014 World Cup Semi-Final",
+    "var": null,
+    "subs": ["Neymar (injured, out)", "Thiago Silva (suspended)"],
+    "key_stat": "4 goals conceded in 6 minutes by Brazil — worst collapse in World Cup semi-final history"
+  },
+  "pitch": {
+    "home": [
+      { "name": "César", "x": 8, "y": 50, "role": "GK" },
+      { "name": "Maicon", "x": 35, "y": 12, "role": "RB" },
+      { "name": "Dante", "x": 25, "y": 40, "role": "CB" },
+      { "name": "Luiz", "x": 15, "y": 58, "role": "CB" },
+      { "name": "Marcelo", "x": 32, "y": 88, "role": "LB" },
+      { "name": "Fernandinho", "x": 48, "y": 42, "role": "CM" },
+      { "name": "Paulinho", "x": 52, "y": 62, "role": "CM" },
+      { "name": "Hulk", "x": 70, "y": 25, "role": "RW" },
+      { "name": "Oscar", "x": 62, "y": 50, "role": "AM" },
+      { "name": "Bernard", "x": 72, "y": 76, "role": "LW" },
+      { "name": "Fred", "x": 68, "y": 55, "role": "FW" }
+    ],
+    "away": [
+      { "name": "Neuer", "x": 94, "y": 50, "role": "GK" },
+      { "name": "Lahm", "x": 75, "y": 85, "role": "RB" },
+      { "name": "Boateng", "x": 78, "y": 60, "role": "CB" },
+      { "name": "Hummels", "x": 80, "y": 40, "role": "CB" },
+      { "name": "Höwedes", "x": 72, "y": 16, "role": "LB" },
+      { "name": "Schweinsteiger", "x": 62, "y": 58, "role": "CM" },
+      { "name": "Kroos", "x": 56, "y": 46, "role": "CM", "highlight": true },
+      { "name": "Müller", "x": 52, "y": 30, "role": "RW" },
+      { "name": "Özil", "x": 58, "y": 70, "role": "AM" },
+      { "name": "Khedira", "x": 50, "y": 40, "role": "CM" },
+      { "name": "Klose", "x": 48, "y": 55, "role": "FW" }
+    ],
+    "ball": { "x": 60, "y": 45 },
+    "arrows": [
+      { "from": { "x": 52, "y": 30 }, "to": { "x": 50, "y": 40 }, "label": "Müller lays off to Kroos" },
+      { "from": { "x": 50, "y": 40 }, "to": { "x": 56, "y": 46 }, "label": "Kroos scores unmarked" }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "arg-croatia2022",
+  "title": "Messi's magic dismantles Croatia",
+  "moment_label": "Messi's 70th-minute run that tore Croatia's shape apart",
+  "year": 2022,
+  "minute": 70,
+  "teams": { "home": "Argentina", "away": "Croatia" },
+  "summary": "Already 2-0 up, Messi received the ball on the right touchline, near the halfway line. He drove at Croatia's defence, skipped past Gvardiol — the tournament's best young defender — with a mesmerising run, and cut back for Julián Álvarez to tap in the third. The run covered 30 metres in 14 seconds with 5 touches, completely unravelling Croatia's structure.",
+  "facts": {
+    "score": "3-0",
+    "competition": "2022 World Cup Semi-Final",
+    "var": "No VAR review needed",
+    "subs": [],
+    "key_stat": "Messi: 5 dribbles, 1 assist, 30-metre run in 14 seconds"
+  },
+  "pitch": {
+    "home": [
+      { "name": "E. Martínez", "x": 6, "y": 50, "role": "GK" },
+      { "name": "Molina", "x": 60, "y": 85, "role": "RB" },
+      { "name": "Romero", "x": 35, "y": 58, "role": "CB" },
+      { "name": "Otamendi", "x": 32, "y": 42, "role": "CB" },
+      { "name": "Tagliafico", "x": 34, "y": 80, "role": "LB" },
+      { "name": "De Paul", "x": 55, "y": 56, "role": "CM" },
+      { "name": "Fernández", "x": 58, "y": 42, "role": "CM" },
+      { "name": "Mac Allister", "x": 62, "y": 76, "role": "AM" },
+      { "name": "Messi", "x": 72, "y": 88, "role": "RW", "highlight": true },
+      { "name": "Álvarez", "x": 74, "y": 50, "role": "FW" },
+      { "name": "Di María", "x": 60, "y": 18, "role": "LW" }
+    ],
+    "away": [
+      { "name": "Livaković", "x": 96, "y": 50, "role": "GK" },
+      { "name": "Juranović", "x": 82, "y": 84, "role": "RB" },
+      { "name": "Gvardiol", "x": 86, "y": 60, "role": "CB", "highlight": true },
+      { "name": "Sutalo", "x": 88, "y": 42, "role": "CB" },
+      { "name": "Sosa", "x": 80, "y": 20, "role": "LB" },
+      { "name": "Brozović", "x": 68, "y": 55, "role": "CM" },
+      { "name": "Modrić", "x": 72, "y": 38, "role": "CM" },
+      { "name": "Kovačić", "x": 70, "y": 70, "role": "CM" },
+      { "name": "Livaja", "x": 60, "y": 82, "role": "RW" },
+      { "name": "Kramarić", "x": 64, "y": 28, "role": "LW" },
+      { "name": "Petković", "x": 58, "y": 52, "role": "FW" }
+    ],
+    "ball": { "x": 72, "y": 88 },
+    "arrows": [
+      { "from": { "x": 72, "y": 88 }, "to": { "x": 86, "y": 60 }, "label": "Messi dribbles past Gvardiol" },
+      { "from": { "x": 86, "y": 60 }, "to": { "x": 74, "y": 50 }, "label": "Messi cut-back ↔ Álvarez" },
+      { "from": { "x": 74, "y": 50 }, "to": { "x": 96, "y": 50 }, "label": "Álvarez finishes" }
+    ]
+  }
+}

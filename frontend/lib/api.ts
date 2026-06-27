@@ -28,10 +28,15 @@ export type MatchSummary = {
 };
 
 export type SSEEvent =
-  | { type: "agent_start"; key: string; label: string }
+  | { type: "agent_start"; key: string; label: string; confidence?: number }
   | { type: "token"; key: string; content: string }
-  | { type: "agent_done"; key: string; sources: string[] }
+  | { type: "agent_done"; key: string; sources: string[]; confidence?: number; key_factors?: string[] }
   | { type: "error"; key: string; content: string }
+  | { type: "compare_start"; match_1: string; match_2: string }
+  | { type: "compare_agent_start"; key: string; label: string }
+  | { type: "compare_side_start"; key: string; side: number; match_id: string }
+  | { type: "compare_side_done"; key: string; side: number }
+  | { type: "compare_agent_done"; key: string }
   | { type: "done" };
 
 export async function getMatches(): Promise<MatchSummary[]> {
@@ -46,14 +51,13 @@ export async function getMatch(id: string): Promise<Moment> {
   return r.json();
 }
 
-// EventSource can't POST, so read the SSE stream off a fetch body manually.
-export async function* streamAnalyze(matchId: string): AsyncGenerator<SSEEvent> {
-  const r = await fetch(`${API}/analyze`, {
+async function* _sseStream(url: string, body: unknown): AsyncGenerator<SSEEvent> {
+  const r = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ match_id: matchId }),
+    body: JSON.stringify(body),
   });
-  if (!r.ok || !r.body) throw new Error(`POST /analyze ${r.status}`);
+  if (!r.ok || !r.body) throw new Error(`${url} ${r.status}`);
 
   const reader = r.body.getReader();
   const decoder = new TextDecoder();
@@ -71,4 +75,22 @@ export async function* streamAnalyze(matchId: string): AsyncGenerator<SSEEvent> 
       }
     }
   }
+}
+
+export function streamAnalyze(matchId: string): AsyncGenerator<SSEEvent> {
+  return _sseStream(`${API}/analyze`, { match_id: matchId });
+}
+
+export function streamRegenerate(matchId: string, agentKey: string): AsyncGenerator<SSEEvent> {
+  return _sseStream(`${API}/analyze/${matchId}/${agentKey}`, {});
+}
+
+export function streamCompare(matchId1: string, matchId2: string): AsyncGenerator<SSEEvent> {
+  return _sseStream(`${API}/analyze/compare`, { match_id_1: matchId1, match_id_2: matchId2 });
+}
+
+export async function exportMatch(matchId: string): Promise<string> {
+  const r = await fetch(`${API}/analyze/${matchId}/export`);
+  if (!r.ok) throw new Error(`GET /analyze/${matchId}/export ${r.status}`);
+  return r.text();
 }

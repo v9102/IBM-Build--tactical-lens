@@ -17,9 +17,29 @@ def get_llm():
         from langchain_core.messages import AIMessage
 
         canned = (
-            "MOCK ANALYSIS: the shift here comes down to space and timing — "
-            "one side committed numbers forward and the other punished the gap "
-            "left behind. Set MOCK=0 with watsonx credentials for real Granite output."
+            "## Analysis\n"
+            "The tactical shift here revolves around defensive line height and "
+            "midfield spacing. The defending side held a high line approximately "
+            "35 metres from goal, compressing the midfield zone but leaving "
+            "significant space behind the full-backs. When possession turned over, "
+            "the attacking side's wingers — positioned high and wide — exploited "
+            "these channels instantly. The centre-forward's intelligent drift into "
+            "the left half-space drew the centre-back out of position, creating a "
+            "vacuum that the onrushing midfielder attacked. This is a textbook "
+            "example of a 'pressing trap' baited and executed: the defending team "
+            "was funnelled into a narrow corridor where numerical superiority was "
+            "impossible to resist, and the subsequent transition punished the "
+            "structural imbalance. The result was a 3v2 situation in the final "
+            "third that the attack converted with clinical precision.\n\n"
+            "## Key Factors\n"
+            "- High defensive line created exploitable space in behind\n"
+            "- Winger pinned the full-back, preventing him from tucking inside\n"
+            "- Centre-forward's diagonal run disorganised the defensive block\n"
+            "- Quick transition (3 passes in 7 seconds) caught defenders mid-shape\n\n"
+            "## Confidence\n"
+            "85/100\n\n"
+            "## Sources\n"
+            "Set MOCK=0 with watsonx credentials for real Granite output grounded in actual reports."
         )
         return GenericFakeChatModel(messages=itertools.cycle([AIMessage(content=canned)]))
     return _watsonx_llm()
@@ -34,7 +54,7 @@ def _watsonx_llm():
         url=settings.watsonx_url,
         project_id=settings.watsonx_project_id,
         apikey=settings.watsonx_apikey,
-        params={"temperature": 0.4, "max_new_tokens": 400},
+        params={"temperature": 0.3, "max_new_tokens": 1024, "top_p": 0.9},
         streaming=True,
     )
 

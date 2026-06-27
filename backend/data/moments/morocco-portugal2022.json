@@ -1,0 +1,49 @@
+{
+  "id": "morocco-portugal2022",
+  "title": "Morocco's defensive masterclass vs Portugal",
+  "moment_label": "How a compact 4-4-2 block neutralised Portugal's attack",
+  "year": 2022,
+  "minute": 42,
+  "teams": { "home": "Morocco", "away": "Portugal" },
+  "summary": "Morocco, already leading 1-0 via En-Nesyri's header, defended their lead with a masterclass in compact mid-block defending. Portugal — starting without Ronaldo — dominated possession (74%) but could not break through Morocco's disciplined 4-4-2 low block. Despite waves of pressure, Morocco held firm to reach the semi-finals, the first African nation ever to do so.",
+  "facts": {
+    "score": "1-0",
+    "competition": "2022 World Cup Quarter-Final",
+    "var": "Goal confirmed — En-Nesyri onside by millimetres",
+    "subs": ["Ronaldo on 51' (could not impact the game)"],
+    "key_stat": "Portugal: 74% possession, 12 shots, 3 on target — 0 goals"
+  },
+  "pitch": {
+    "home": [
+      { "name": "Bounou", "x": 8, "y": 50, "role": "GK" },
+      { "name": "Hakimi", "x": 25, "y": 88, "role": "RB" },
+      { "name": "El Yamiq", "x": 22, "y": 58, "role": "CB" },
+      { "name": "Saïss", "x": 22, "y": 42, "role": "CB" },
+      { "name": "Attiyat-Allah", "x": 25, "y": 12, "role": "LB" },
+      { "name": "Amrabat", "x": 38, "y": 50, "role": "CM" },
+      { "name": "Ounahi", "x": 42, "y": 40, "role": "CM" },
+      { "name": "Ziyech", "x": 50, "y": 82, "role": "RM" },
+      { "name": "Boufal", "x": 48, "y": 18, "role": "LM" },
+      { "name": "En-Nesyri", "x": 55, "y": 55, "role": "FW", "highlight": true },
+      { "name": "Aboukhlal", "x": 52, "y": 40, "role": "FW" }
+    ],
+    "away": [
+      { "name": "Costa", "x": 96, "y": 50, "role": "GK" },
+      { "name": "Dalot", "x": 78, "y": 86, "role": "RB" },
+      { "name": "Dias", "x": 80, "y": 60, "role": "CB" },
+      { "name": "Pepe", "x": 82, "y": 42, "role": "CB" },
+      { "name": "Guerreiro", "x": 76, "y": 12, "role": "LB" },
+      { "name": "Silva", "x": 66, "y": 52, "role": "CM" },
+      { "name": "Carvalho", "x": 68, "y": 62, "role": "CM" },
+      { "name": "Neves", "x": 64, "y": 38, "role": "CM" },
+      { "name": "B. Silva", "x": 62, "y": 82, "role": "RW" },
+      { "name": "Félix", "x": 60, "y": 48, "role": "FW" },
+      { "name": "Ramos", "x": 56, "y": 28, "role": "FW" }
+    ],
+    "ball": { "x": 52, "y": 42 },
+    "arrows": [
+      { "from": { "x": 38, "y": 50 }, "to": { "x": 52, "y": 42 }, "label": "Amrabat sweeps — Morocco shift left" },
+      { "from": { "x": 52, "y": 42 }, "to": { "x": 55, "y": 55 }, "label": "En-Nesyri holds up play" }
+    ]
+  }
+}
